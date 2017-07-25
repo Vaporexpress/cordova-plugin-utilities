@@ -1,4 +1,4 @@
-# cordova-plugin-devicemeta
+# cordova-plugin-utilities
 Some utilities for Cordova Apps (PhoneGap/Hybrid)
 Currently supports only Android, and iOS
 
