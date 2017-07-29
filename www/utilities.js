@@ -1,15 +1,48 @@
-cordova.define("cordova-plugin-utilities.utilities", function(require, exports, module) {
-var exec = require('cordova/exec');
+var argscheck = require('cordova/argscheck'),
+    channel = require('cordova/channel'),
+    utils = require('cordova/utils'),
+    exec = require('cordova/exec'),
+    cordova = require('cordova');
 
-exports.getHtmlSource = function (url, success, error) {
-    exec(success || null, error || null, "Utilities", "getHtmlSource", [url]);
+channel.createSticky('onCordovaInfoReady');
+// Tell cordova channel to wait on the CordovaInfoReady event
+channel.waitForInitialization('onCordovaInfoReady');
+
+function Utilities() {
+}
+
+/**
+ * getHtmlSource
+ *
+ * @param {Function} successCallback The function to call when the heading data is available
+ * @param {Function} errorCallback The function to call when there is an error getting the heading data. (OPTIONAL)
+ */
+Utilities.prototype.getHtmlSource = function(successCallback, errorCallback) {
+    argscheck.checkArgs('fF', 'Utilities.getHtmlSource', arguments);
+    exec(successCallback, errorCallback, "Utilities", "getHtmlSource", [url]);
 };
 
-exports.getMimeType = function (url, success, error) {
-    exec(success || null, error || null, "Utilities", "getMimeType", [url]);
+/**
+ * getMimeType
+ *
+ * @param {Function} successCallback The function to call when the heading data is available
+ * @param {Function} errorCallback The function to call when there is an error getting the heading data. (OPTIONAL)
+ */
+Utilities.prototype.getMimeType = function(successCallback, errorCallback) {
+    argscheck.checkArgs('fF', 'Utilities.getMimeType', arguments);
+    exec(successCallback, errorCallback, "Utilities", "getMimeType", [url]);
 };
 
-exports.openURL = function (url, success, error) {
-    exec(success || null, error || null, "Utilities", "openURL", [url]);
+/**
+ * openURL
+ *
+ * @param {Function} successCallback The function to call when the heading data is available
+ * @param {Function} errorCallback The function to call when there is an error getting the heading data. (OPTIONAL)
+ */
+Utilities.prototype.openURL = function(successCallback, errorCallback) {
+    argscheck.checkArgs('fF', 'Utilities.openURL', arguments);
+    exec(successCallback, errorCallback, "Utilities", "openURL", [url]);
 };
-});
+
+module.exports = new Utilities();
+
