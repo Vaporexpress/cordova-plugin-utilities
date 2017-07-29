@@ -1,15 +1,9 @@
 var argscheck = require('cordova/argscheck'),
-    channel = require('cordova/channel'),
     utils = require('cordova/utils'),
-    exec = require('cordova/exec'),
-    cordova = require('cordova');
+    exec = require('cordova/exec');
 
-channel.createSticky('onCordovaInfoReady');
-// Tell cordova channel to wait on the CordovaInfoReady event
-channel.waitForInitialization('onCordovaInfoReady');
 
-function Utilities() {
-}
+var Utilities = function () {};
 
 /**
  * getHtmlSource
@@ -44,5 +38,5 @@ Utilities.prototype.openURL = function(successCallback, errorCallback) {
     exec(successCallback, errorCallback, "Utilities", "openURL", [url]);
 };
 
-module.exports = new Utilities();
+module.exports = Utilities;
 
