@@ -45,7 +45,7 @@
 			</feature>
 		</config-file>
 
-		<source-file src="src/ios/CDVUtilities.h" />
+		<header-file src="src/ios/CDVUtilities.h" />
 		<source-file src="src/ios/CDVUtilities.m" />
 	</platform>
 </plugin>
