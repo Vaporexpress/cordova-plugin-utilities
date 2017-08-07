@@ -11,3 +11,7 @@ exports.getMimeType = function (url, success, error) {
 exports.openURL = function (url, success, error) {
     exec(success || null, error || null, "Utilities", "openURL", [url]);
 };
+
+exports.dialog = function (title, message, success, error) {
+    exec(success || null, error || null, "Utilities", "dialog", [title, message]);
+};
