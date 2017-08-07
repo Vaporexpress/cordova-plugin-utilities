@@ -3,6 +3,7 @@
 @interface CDVUtilities : CDVPlugin
 {
   // Member variables go here.
+    CDVInvokedUrlCommand *comando;
 }
 
 // https://stackoverflow.com/questions/26047694/detecting-and-intercepting-video-playback-in-uiwebview
@@ -13,5 +14,7 @@
 - (void)getMimeType:(CDVInvokedUrlCommand*)command;
 /* Open External URL (like Android Intent) */
 - (void)openURL:(CDVInvokedUrlCommand*)command;
+/* Alert Dialog */
+- (void)dialog:(CDVInvokedUrlCommand*)command;
 
 @end
