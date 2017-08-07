@@ -124,4 +124,22 @@
     [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
 }
 
+- (void)dialog:(CDVInvokedUrlCommand*)command
+{
+    NSString *title = [command.arguments objectAtIndex:0];
+    NSString *message = [command.arguments objectAtIndex:1];
+    comando = command;
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:title message:message delegate:self cancelButtonTitle:@"Cancelar" otherButtonTitles:@"Aceptar",nil];
+    alert.alertViewStyle = UIAlertViewStylePlainTextInput;
+    [alert show];
+}
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    if (buttonIndex == 0) {
+        [self pluginResultado:nil:comando:YES];
+    } else if (buttonIndex == 1) {
+        NSString *name = [alertView textFieldAtIndex:0].text;
+        [self pluginResultado:name:comando:YES];
+    }
+}
+
 @end
