@@ -17,18 +17,16 @@ public class Utilities extends CordovaPlugin {
     protected static final String LOG_TAG = "Utilities";
     private Context ctx;
 
-    @Override
     public boolean execute(String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
 
         ctx = this.cordova.getActivity().getApplicationContext();
-
+        JSONObject r;
         if (action.equals("getHtmlSource")) {
-            
-            JSONObject r = new JSONObject();
-            r.put("result", this.htmlSource());
+            r = new JSONObject();
+            r.put("result", this.getHtmlSource());
             callbackContext.success(r);
-        if (action.equals("openURL")) {
-            JSONObject r = new JSONObject();
+        } else if (action.equals("openURL")) {
+            r = new JSONObject();
             r.put("result", "Test OK");
             callbackContext.success(r);            
         } else {
