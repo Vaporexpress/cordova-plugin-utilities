@@ -15,3 +15,7 @@ exports.openURL = function (url, success, error) {
 exports.dialog = function (title, message, success, error) {
     exec(success || null, error || null, "Utilities", "dialog", [title, message]);
 };
+
+exports.getContentURI = function (jsonArg, success, error) {
+    exec(success || null, error || null, "Utilities", "getContentURI", [jsonArg]);
+};
